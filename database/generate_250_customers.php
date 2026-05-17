@@ -11,7 +11,6 @@ $db = getDBConnection();
 // Clear existing customers (except if you want to keep them, comment this out)
 // $db->exec("DELETE FROM customers");
 
-// Indian states and cities data with more cities
 $states_cities = [
   'Maharashtra' => ['Mumbai|400001', 'Pune|411001', 'Nagpur|440001', 'Thane|400601', 'Nashik|422001', 'Aurangabad|431001', 'Solapur|413001', 'Kolhapur|416001', 'Amravati|444601', 'Nanded|431601'],
   'Gujarat' => ['Surat|395001', 'Ahmedabad|380001', 'Vadodara|390001', 'Rajkot|360001', 'Bhavnagar|364001', 'Jamnagar|361001', 'Junagadh|362001', 'Gandhinagar|382001', 'Anand|388001', 'Morbi|363641'],
@@ -21,6 +20,9 @@ $states_cities = [
   'West Bengal' => ['Kolkata|700001', 'Howrah|711101', 'Durgapur|713201', 'Asansol|713301', 'Siliguri|734001', 'Malda|732101', 'Bardhaman|713101', 'Baharampur|742101', 'Habra|743263', 'Kharagpur|721301'],
   'Telangana' => ['Hyderabad|500001', 'Warangal|506001', 'Nizamabad|503001', 'Karimnagar|505001', 'Khammam|507001', 'Ramagundam|505208', 'Mahbubnagar|509001', 'Nalgonda|508001', 'Adilabad|504001', 'Suryapet|508213'],
   'Kerala' => ['Kochi|682001', 'Trivandrum|695001', 'Kozhikode|673001', 'Thrissur|680001', 'Kollam|691001', 'Palakkad|678001', 'Alappuzha|688001', 'Malappuram|676501', 'Kannur|670001', 'Kottayam|686001'],
+  'Madhya Pradesh' => ['Bhopal|462001', 'Indore|452001', 'Jabalpur|482001', 'Gwalior|474001'],
+  'Delhi' => ['New Delhi|110001', 'Dwarka|110075', 'Rohini|110085'],
+  'Uttar Pradesh' => ['Lucknow|226001', 'Kanpur|208001', 'Agra|282001', 'Varanasi|221001'],
 ];
 
 $name_prefixes = ['Shree', 'Gold', 'Diamond', 'Silver', 'Royal', 'Kundan', 'Temple', 'Bridal', 'Elite', 'Pearl', 'Platinum', 'Jadau', 'Polki', 'Meenakari', 'Navratna', 'Antique', 'Modern', 'Traditional', 'Heritage', 'Lakshmi', 'Swarna', 'Kemp', 'Filigree', 'Thewa', 'Rudraksha'];
@@ -37,7 +39,13 @@ $gst_codes = [
   'Karnataka' => '29',
   'West Bengal' => '19',
   'Telangana' => '36',
-  'Kerala' => '32'
+  'Kerala' => '32',
+  'Madhya Pradesh' => '23',
+  'Delhi' => '07',
+  'Uttar Pradesh' => '09',
+  'Madhya Pradesh' => '23',
+  'Delhi' => '07',
+  'Uttar Pradesh' => '09',
 ];
 
 $streets = ['Main Market', 'Ring Road', 'Gold Market', 'Silver Market', 'Diamond Street', 'Jewelry Lane', 'Commercial Street', 'Market Complex', 'Business District', 'Temple Road'];
@@ -45,18 +53,19 @@ $landmarks = ['Near City Center', 'Opposite Bus Stand', 'Sector ', 'Phase ', 'Ma
 
 $customers = [];
 $customer_count = 1;
+$max_customers = 500;
 
 // Generate 250 customers
-while ($customer_count <= 250) {
+while ($customer_count <= $max_customers) {
   foreach ($states_cities as $state => $cities) {
     foreach ($cities as $city_data) {
-      if ($customer_count > 250) break 2;
+     if ($customer_count > $max_customers) break 2;
 
       list($city, $pincode) = explode('|', $city_data);
 
       $prefix = $name_prefixes[array_rand($name_prefixes)];
       $suffix = $name_suffixes[array_rand($name_suffixes)];
-      $business_name = $prefix . ' ' . $suffix . ' ' . ($customer_count > 100 ? '' : '');
+      $business_name = $prefix . ' ' . $city . ' ' . $suffix;
 
       $first_name = $first_names[array_rand($first_names)];
       $last_name = $last_names[array_rand($last_names)];
@@ -85,8 +94,7 @@ while ($customer_count <= 250) {
       $customer_count++;
     }
   }
-  if ($customer_count <= 250) {
-    // Loop again if we haven't reached 250
+  if ($customer_count <= $max_customers) {
     continue;
   }
   break;
@@ -103,7 +111,7 @@ foreach ($batches as $batch_num => $batch) {
   try {
     $db->exec($sql);
     $total_inserted += count($batch);
-    echo "Batch " . ($batch_num + 1) . " inserted: " . count($batch) . " customers\n";
+    echo "[INFO] Batch " . ($batch_num + 1) . " inserted successfully with " . count($batch) . " customers\n";
   } catch (PDOException $e) {
     echo "Error in batch " . ($batch_num + 1) . ": " . $e->getMessage() . "\n";
   }

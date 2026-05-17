@@ -16,7 +16,7 @@ $categories = $stmt->fetchAll();
 // Get existing products for selection
 $stmt = $db->query("SELECT id, name, metal_type, purity FROM products WHERE is_active = 1 ORDER BY name");
 $products = $stmt->fetchAll();
-
+// Handle stock inward form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $db->beginTransaction();
@@ -59,7 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmt->execute([$productId]);
                 }
                 
-                if (!$productId) continue;
+                if (!$productId) {
+                  continue;
+                   }
                 
                 $quantity = intval($item['quantity'] ?? 0);
                 $grossWeight = floatval($item['gross_weight'] ?? 0);
@@ -134,7 +136,7 @@ include __DIR__ . '/../includes/header.php';
                 </div>
                 <div class="col-md-4">
                     <label class="form-label">Reference Number</label>
-                    <input type="text" name="reference_no" class="form-control" placeholder="Invoice/GRN Number">
+                    <input type="text" name="reference_no" class="form-control"placeholder="Enter invoice, challan or GRN number">
                 </div>
                 <div class="col-md-4">
                     <label class="form-label">Date</label>
@@ -218,11 +220,11 @@ include __DIR__ . '/../includes/header.php';
                                 </div>
                                 <div class="col-md-2 mb-3">
                                     <label class="form-label">Gross Wt (g)</label>
-                                    <input type="number" name="items[0][gross_weight]" class="form-control" step="0.001" min="0">
+                                   <input type="number" name="items[0][gross_weight]" class="form-control" step="0.001" min="0" oninput="validateWeights(this)">
                                 </div>
                                 <div class="col-md-2 mb-3">
                                     <label class="form-label">Net Wt (g) <span class="text-danger">*</span></label>
-                                    <input type="number" name="items[0][net_weight]" class="form-control" step="0.001" min="0.001" required>
+                                   <input type="number" name="items[0][net_weight]" class="form-control" step="0.001" min="0.001" required oninput="validateWeights(this)">
                                 </div>
                                 <div class="col-md-2 mb-3">
                                     <label class="form-label">Wastage %</label>
@@ -242,7 +244,7 @@ include __DIR__ . '/../includes/header.php';
             
             <div class="mb-3">
                 <label class="form-label">Notes</label>
-                <textarea name="notes" class="form-control" rows="3" placeholder="Any additional information..."></textarea>
+                <textarea name="notes" class="form-control" rows="3" pplaceholder="Enter stock inward remarks or supplier notes"></textarea>
             </div>
             
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">

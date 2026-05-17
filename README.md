@@ -1,3 +1,19 @@
+
+<div align="center">
+
+# 💎 JewelSync ERP
+### 🚀 Enterprise Resource Planning & Jewellery Billing System
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Poppins&size=28&duration=3000&color=F7C600&center=true&vCenter=true&width=1000&lines=Modern+ERP+for+Jewellery+Businesses;GST+Billing+%7C+Inventory+%7C+Reports;Customer+%26+Ledger+Management;Built+with+PHP+%2B+MySQL;Professional+Business+Management+System" />
+
+<br>
+
+<img src="https://img.shields.io/badge/PHP-7.4+-777BB4?style=for-the-badge&logo=php&logoColor=white" />
+<img src="https://img.shields.io/badge/MySQL-5.7+-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
+<img src="https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" />
+<img src="https://img.shields.io/badge/ERP-System-success?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" />
+=======
 <<<<<<< HEAD
 # 💎 JewelSync ERP — Jewellery Billing & Inventory System
 
@@ -24,137 +40,391 @@ A modern PHP-based Jewellery Billing, Inventory, and GST Management System desig
 | Bootstrap | 5 |
 | JavaScript | ES6 |
 | HTML/CSS | HTML5/CSS3 |
+>>>>>>> main
 
-## Checklist (your request)
+<br><br>
 
-- [x] Provide a README describing the project and how to run it locally.
-- [x] Start the project locally (PHP built-in server) — server started in background. Database import still required for full functionality.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=F7C600&height=120&section=header"/>
 
-## Requirements
-
-- PHP 7.4+ with PDO and common extensions (pdo_mysql, mbstring, json, gd as needed)
-- MySQL 5.7+ or MariaDB
-- Web server (optional): Apache / Nginx / XAMPP / MAMP
-- Command line access or phpMyAdmin for importing the DB schema
-
-## Quick start (recommended for local development)
-
-1. Create the database and import the schema:
-
-```bash
-# create database (if using mysql CLI)
-mysql -u root -p < database/schema.sql
-```
-
-Or import `database/schema.sql` via phpMyAdmin or your preferred DB tool. Default DB name in the schema: `jewellery_billing`.
-
-2. Update DB credentials if needed in `config/database.php` (defaults: host 127.0.0.1, user root, empty password).
-
-3. Run the PHP built-in server from the project root (for development):
-
-```bash
-cd /path/to/jewellery
-php -S 127.0.0.1:8000
-```
-
-Then open http://127.0.0.1:8000 in your browser. The root `index.php` redirects to `login.php`.
-
-Alternative: use XAMPP or MAMP — place the `jewellery` folder inside your webserver's document root (for XAMPP on macOS: `/Applications/XAMPP/htdocs/jewellery`) and access via http://localhost/jewellery.
-
-## Default credentials
-
-Per the project setup notes, the initial default credentials are:
-
-- Username: `admin`
-- Password: `admin123`
-
-Change the password immediately after first login.
-
-## Project configuration
-
-- Database configuration: `config/database.php` — update DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME as needed.
-- Application constants: `config/constants.php` (BASE_URL, session settings, GST rates, paths).
-
-Notes:
-
-- If you run inside a subdirectory (for example with XAMPP at `/jewellery`), set `BASE_URL` in `config/constants.php` to `'/jewellery'`.
-
-## Folder overview
-
-Key folders and responsibilities:
-
-- `ajax/` — AJAX endpoints used by the frontend
-- `api/` — lightweight API endpoints
-- `assets/` — CSS and JS
-<!-- Merged README: combines both summaries and usage instructions -->
-
-# JewelSync ERP — Jewellery Billing & Inventory System
-
-Lightweight PHP-based billing, inventory and invoicing system tailored for jewellery stores.
-
-## One-line summary
-
-- Purpose: manage customers, invoices, metal rates, stock, payments and reports.
-- Language: PHP (PDO), MySQL (MariaDB/MySQL)
-
-## Requirements
-
-- PHP 7.4+ with PDO and common extensions (pdo_mysql, mbstring, json)
-- MySQL 5.7+ / MariaDB
-- Web server (Apache/Nginx) or PHP built-in server for development
-
-## Quick start (local)
-
-1. Import database schema:
-
-```bash
-mysql -u root -p < database/schema.sql
-```
-
-2. Update DB credentials in `config/database.php` and `BASE_URL` in `config/constants.php` when needed.
-
-3. Start dev server:
-
-```bash
-cd /path/to/jewellery
-php -S 127.0.0.1:8000
-```
-
-4. Open http://127.0.0.1:8000 (or http://localhost/jewellery for XAMPP).
-
-## Default credentials (if present)
-
-- Username: `admin`
-- Password: `admin123`
-
-## Important files & folders
-
-- `index.php` — app entry (redirects to `login.php`)
-- `config/` — DB and app config
-- `database/schema.sql` — DB schema
-- `includes/` — shared PHP includes (`functions.php`, `header.php`, `footer.php`)
-
-## Troubleshooting notes
-
-- Database connection issues: ensure MySQL is running and `config/database.php` matches credentials & host.
-- Port conflicts: XAMPP and Homebrew MySQL both bind to 3306 — stop one before starting the other.
-
-## Next steps
-
-- Optionally import sample data from `database/` scripts.
-- Adjust `BASE_URL` when deploying under a subdirectory.
+</div>
 
 ---
 
-If you want, I can import the schema and create a test admin user for you (provide DB credentials), or push the changes to GitHub for you.
+# 💎 About JewelSync ERP
 
-## Next steps / suggestions
+JewelSync ERP is a modern **Enterprise Resource Planning (ERP) System** specially designed for jewellery shops, wholesalers, and retail businesses.
 
-- Add an automated installer script that sets up the database and writes `config/database.php`.
-- Add unit/integration tests and a small Dockerfile or Compose for reproducible local development.
+The platform integrates:
 
-## License & author
+- 🧾 Jewellery Billing
+- 📦 Inventory Management
+- 👥 Customer Management
+- 💳 Payment Tracking
+- 📊 GST & Sales Reporting
+- 💰 Metal Rate Management
+- 📈 Business Analytics
 
-Repository: `omsoni21/jewellery` (owner: omsoni21). No license file is included — add one if you want to make the project open source.
+into a single centralized and easy-to-use business management solution.
 
-> > > > > > > origin/main
+---
+
+# ✨ Features
+
+<div align="center">
+
+| Core Features | Description |
+|---|---|
+| 🧾 GST Billing | Professional GST Invoice Generation |
+| 📦 Inventory Management | Real-Time Stock Tracking |
+| 👥 Customer Management | Ledger & Outstanding Tracking |
+| 💰 Metal Rate Management | Gold/Silver Rate Handling |
+| 💳 Payment Management | Cash, UPI, Bank & Cheque |
+| 📊 Reports & Analytics | Sales, GST & Business Reports |
+| 🔐 Secure Authentication | Login & Role-Based Access |
+| 📄 PDF Invoice | Download Printable Invoices |
+| 📈 ERP Dashboard | Business Insights & Analytics |
+
+</div>
+
+---
+
+# 📊 Modules Included
+
+---
+
+## 🔐 User Authentication Module
+
+- Secure Login System
+- Password Encryption
+- Session Management
+- Role-Based Access Control
+
+---
+
+## 🧾 Jewellery Billing Module
+
+- GST Invoice Generation
+- Multi-Item Billing
+- Making Charges Calculation
+- Wastage Calculation
+- PDF Invoice Download
+
+---
+
+## 📦 Inventory Management Module
+
+- Stock Inward & Outward
+- Automatic Stock Deduction
+- Low Stock Alerts
+- Purity-wise Stock Tracking
+
+---
+
+## 💰 Metal Rate Management Module
+
+- Daily Gold/Silver Rate Entry
+- Historical Rate Management
+- Automatic Billing Rate Usage
+
+---
+
+## 👥 Customer & Ledger Module
+
+- Customer Profile Management
+- Outstanding Balance Tracking
+- Credit Limit Handling
+- Customer Ledger Maintenance
+
+---
+
+## 💳 Payment Management Module
+
+- Cash / UPI / Bank / Cheque Payments
+- Partial Payment Support
+- Payment History Tracking
+
+---
+
+## 📊 Reporting & Analytics Module
+
+- Sales Reports
+- GST Summary Reports
+- Customer-wise Reports
+- Inventory Reports
+- Outstanding Payment Reports
+
+---
+
+## 🏢 ERP Administration Module
+
+- Company Configuration
+- Financial Year Setup
+- Invoice Number Management
+- Business Dashboard & Analytics
+
+---
+
+# 🚀 Technology Stack
+
+<div align="center">
+
+| Technology | Usage |
+|---|---|
+| 🐘 PHP | Backend Development |
+| 🛢️ MySQL | Database Management |
+| 🎨 Bootstrap 5 | Frontend UI Design |
+| ⚡ JavaScript | Client-side Functionality |
+| 🌐 HTML/CSS | Interface Design |
+
+</div>
+
+---
+
+# ⚙️ System Requirements
+
+| Requirement | Version |
+|---|---|
+| PHP | 7.4+ |
+| MySQL | 5.7+ |
+| MariaDB | Supported |
+| Bootstrap | 5 |
+| Web Server | Apache / Nginx / XAMPP / MAMP |
+
+---
+
+# 🚀 Quick Start
+
+## 1️⃣ Import Database
+
+```bash
+mysql -u root -p < database/schema.sql
+```
+
+Or import:
+
+```bash
+database/schema.sql
+```
+
+using phpMyAdmin.
+
+---
+
+## 2️⃣ Configure Database
+
+Update credentials inside:
+
+```bash
+config/database.php
+```
+
+---
+
+## 3️⃣ Run Development Server
+
+```bash
+cd /path/to/jewellery
+php -S 127.0.0.1:8000
+```
+
+---
+
+## 4️⃣ Open In Browser
+
+```bash
+http://127.0.0.1:8000
+```
+
+The root `index.php` redirects to `login.php`.
+
+---
+
+# 🔐 Default Credentials
+
+<div align="center">
+
+| Username | Password |
+|---|---|
+| `admin` | `admin123` |
+
+</div>
+
+⚠️ Change password immediately after first login.
+
+---
+
+# 🛠️ Project Configuration
+
+---
+
+## 📂 Database Configuration
+
+### File:
+
+```bash
+config/database.php
+```
+
+### Update:
+
+```env
+DB_HOST
+DB_USERNAME
+DB_PASSWORD
+DB_NAME
+```
+
+### Default Values
+
+| Setting | Default |
+|---|---|
+| Host | 127.0.0.1 |
+| Username | root |
+| Password | *(empty)* |
+| Database | jewellery_billing |
+
+---
+
+## ⚙️ Application Constants
+
+### File:
+
+```bash
+config/constants.php
+```
+
+### Contains:
+
+- `BASE_URL`
+- Session Settings
+- GST Rates
+- File Paths
+- Application Constants
+
+---
+
+## 📝 Notes
+
+If running inside a subdirectory:
+
+```php
+BASE_URL = '/jewellery';
+```
+
+Example:
+
+```bash
+http://localhost/jewellery
+```
+
+---
+
+# 📂 Project Structure
+
+```bash
+📦 jewellery
+ ┣ 📂 ajax
+ ┣ 📂 api
+ ┣ 📂 assets
+ ┣ 📂 config
+ ┣ 📂 database
+ ┣ 📂 includes
+ ┣ 📂 uploads
+ ┣ 📂 reports
+ ┣ 📜 index.php
+ ┣ 📜 login.php
+ ┗ 📜 dashboard.php
+```
+
+---
+
+# 📁 Important Files & Folders
+
+<div align="center">
+
+| File / Folder | Purpose |
+|---|---|
+| `index.php` | Application entry point |
+| `login.php` | Login page |
+| `dashboard.php` | Main dashboard |
+| `config/` | Application config |
+| `database/schema.sql` | Database schema |
+| `includes/` | Shared reusable components |
+
+</div>
+
+---
+
+# 🌟 Core ERP Capabilities
+
+✅ Centralized Business Management  
+✅ Real-Time Inventory Tracking  
+✅ Automated GST Calculations  
+✅ Financial Record Management  
+✅ Digital Invoice Generation  
+✅ Business Analytics Dashboard  
+✅ Reporting & Data Management  
+✅ Customer & Vendor Handling  
+
+---
+
+# 📌 Ideal For
+
+- Jewellery Shops
+- Jewellery Wholesalers
+- Gold & Silver Retailers
+- Multi-Branch Jewellery Businesses
+- Small & Medium Enterprises (SMEs)
+
+---
+
+# 🔥 Key Highlights
+
+✔ Modern ERP Architecture  
+✔ GST-Compliant Billing  
+✔ Responsive User Interface  
+✔ Secure Authentication System  
+✔ Automated Business Workflow  
+✔ Scalable Inventory System  
+✔ Professional Reporting System  
+
+---
+
+# 🛠️ Future Improvements
+
+- Barcode Integration
+- Multi-Branch Support
+- Advanced Business Analytics
+- Cloud Deployment
+- Mobile Application
+- AI-Based Sales Prediction
+
+---
+
+# 📄 License & Author
+
+Repository:
+
+```bash
+omsoni21/jewelsync_ERP
+```
+
+Owner:
+
+```bash
+omsoni21, tanishadale13, Sankitsingh21.
+```
+
+---
+
+<div align="center">
+
+# ⭐ Support The Project
+
+If you like this project, consider giving it a ⭐ on GitHub.
+
+<br><br>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=F7C600&height=120&section=footer"/>
+
+</div>
